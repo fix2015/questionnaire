@@ -5,7 +5,7 @@ describe('Test question app', function() {
 
   beforeEach(inject(function ($rootScope, $compile, $httpBackend, $controller) {
     scope = $rootScope.$new();
-    $httpBackend.whenGET('src/modules/questions/form.html').respond(200, '');
+    $httpBackend.whenGET('src/modules/questions/template/form.html').respond(200, '');
     $httpBackend.whenGET('public/templates/home.html').respond(200, '');
 
     $controller('questionsCtrl', { $scope: scope });
@@ -64,7 +64,7 @@ describe('Test directive formForQuestions', function() {
   beforeEach(module('angularApp','questions'));
   beforeEach(inject(function ($rootScope, $compile, $httpBackend, $controller) {
     scope = $rootScope.$new();
-    $httpBackend.whenGET('src/modules/questions/form.html').respond(200, '');
+    $httpBackend.whenGET('src/modules/questions/template/form.html').respond(200, '');
     $httpBackend.whenGET('public/templates/home.html').respond(200, '');
 
      element = angular.element("<form-for-questions></form-for-questions>");
@@ -84,7 +84,7 @@ describe('Test directive result', function() {
   beforeEach(module('angularApp','questions'));
   beforeEach(inject(function ($rootScope, $compile, $httpBackend, $controller) {
     scope = $rootScope.$new();
-    $httpBackend.whenGET('src/modules/questions/result.html').respond(200, '');
+    $httpBackend.whenGET('src/modules/questions/template/result.html').respond(200, '');
     $httpBackend.whenGET('public/templates/home.html').respond(200, '');
 
      element = angular.element("<result data='result success'></result>");
@@ -105,7 +105,7 @@ describe('Test directive question', function() {
   beforeEach(module('angularApp','questions'));
   beforeEach(inject(function ($rootScope, $compile, $httpBackend, $controller) {
     scope = $rootScope.$new();
-    $httpBackend.whenGET('src/modules/questions/question.html').respond(200, '');
+    $httpBackend.whenGET('src/modules/questions/template/question.html').respond(200, '');
     $httpBackend.whenGET('public/templates/home.html').respond(200, '');
 
     element = angular.element("<question data='"+data+"'></question>");

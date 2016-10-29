@@ -19,8 +19,10 @@ module.exports = function(config) {
       '../public/lib/*.js',
       './unit/*.js',
       '../app.js',
-      '../src/**/*.js',
-      '../src/modules/questions/questions.html',
+      '../src/modules/questions/questions.js',
+      '../src/modules/questions/*.js',
+      '../src/modules/questions/**/*.js', 
+        '../src/**/*.js',
     ],
 
     // test result reporter
