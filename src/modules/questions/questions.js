@@ -39,7 +39,7 @@ angular.module('questions',['ngSanitize'])
             scope: {
                 data: '='
             },
-            templateUrl: 'src/modules/questions/result.html',
+            templateUrl: 'src/modules/questions/template/result.html',
             link: function (scope, element, attrs) {
                 angular.forEach(scope.data, function (val, ind) {
                     val.text = val.text.replace('__&__', '<b>'+val.value+'</b>');
@@ -53,7 +53,7 @@ angular.module('questions',['ngSanitize'])
             scope: {
                 data: '='
             },
-            templateUrl: 'src/modules/questions/question.html',
+            templateUrl: 'src/modules/questions/template/question.html',
             controller: function ($scope) {
                 $scope.splitQuestion = $scope.data.text.split('__');
             }
@@ -62,7 +62,7 @@ angular.module('questions',['ngSanitize'])
     .directive('formForQuestions', ['listOfQuestion', function( listOfQuestion) {
         return {
             restrict: 'E',
-            templateUrl: 'src/modules/questions/form.html',
+            templateUrl: 'src/modules/questions/template/form.html',
             controller: 'questionsCtrl',
         }
     }]);
