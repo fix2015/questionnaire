@@ -49,6 +49,12 @@ src/
         questions/
             .js
             .scss
+            controller/
+                .js
+            factory/
+                .js
+            directive/
+                .js
             template/.html
 ```
 
