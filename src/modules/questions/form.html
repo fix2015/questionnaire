@@ -14,7 +14,6 @@
         </h3>
         <form name="myForm"  ng-submit="next()">
             <div ng-repeat="question in list.questions" class="question-block">
-                {{question}}
                 <question data="question"></question>
             </div>
             <input type="submit" value="Next">
