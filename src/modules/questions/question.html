@@ -1,0 +1,26 @@
+<div ng-repeat="list in splitQuestion" >
+    <div ng-if="data.type=='text'">
+        <span ng-if="list!='&'">{{list}}</span>
+        <input ng-if="list=='&'"
+               list='{{data.id}}'
+               name='{{list.name}}'
+               ng-model="data.value"
+               value=""
+               ng-maxlength="data.length || 255"
+        />
+    </div>
+
+    <div ng-if="data.type=='select'">
+        <span  ng-if="list!='&'">{{list}}</span>
+        <select ng-if="list=='&'" ng-model="data.value">
+            <option ng-repeat="option in data.datalist">{{option}}</option>
+        </select>
+    </div>
+
+    <datalist id={{data.id}} ng-if="data.datalist">
+        <option ng-repeat="value in data.datalist" value={{value}}></option>
+    </datalist>
+</div>
+
+
+<div class="error">{{data.error}}</div>

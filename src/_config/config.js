@@ -10,23 +10,5 @@ angular.module('angularApp')
                 url         : '/',
                 templateUrl : 'public/templates/home.html',
                 controller  : 'mainController'
-            })            
-            .state('contact', {
-                url         : '/contact',
-                templateUrl : 'public/templates/contact.html',
-                controller  : 'contactController'
-            })            
-            .state('component', {
-                url         : '/component',
-                templateUrl : 'public/templates/component.html'
-            })
-            .state('module', {
-                url         : '/module',
-                templateUrl : 'public/templates/newmodule.html'
-            })
-            .state('provider', {
-                url         : '/provider',
-                templateUrl : 'public/templates/provider.html',
-                controller  : 'mainController'
             })
     }]);

@@ -1,0 +1,27 @@
+<div class="start" ng-if="!process && resultData.length==0">
+    <button ng-click="start()">Start</button>
+</div>
+<div class="questions" ng-if="process">
+    <div class="questions-stage">
+        <div ng-repeat="list in listOfQuestion">
+            <span ng-class="{active: idOfQuestion == $index}">Stage - {{$index+1}}</span><b ng-if="idOfQuestion == $index" class="triangle"></b>
+        </div>
+        <hr/>
+    </div>
+    <div class="questions-block">
+        <h3>
+            {{list.text}}
+        </h3>
+        <form name="myForm"  ng-submit="next()">
+            <div ng-repeat="question in list.questions" class="question-block">
+                <question data="question"></question>
+            </div>
+            <input type="submit" value="Next">
+        </form>
+    </div>
+</div>
+<div class="result" ng-if="!process && resultData.length>0">
+    <result data="resultData"></result>
+</div>
+
+
