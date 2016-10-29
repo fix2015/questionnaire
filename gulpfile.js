@@ -4,6 +4,7 @@ var plumber = require('gulp-plumber');
 var csso = require('gulp-csso');
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
+var karma = require('karma').server;
 
 gulp.task('sass', function() {
     gulp.src([
@@ -47,6 +48,13 @@ gulp.task('watch', function() {
     gulp.watch('src/modules/**/*.scss', ['sass']);
     gulp.watch('src/**/*.js', ['compress-dev']);
     gulp.watch('app.js', ['compress-dev']);
+});
+
+gulp.task('unit', function (done) {
+    karma.start({
+        configFile: __dirname + '/tests/karma.conf.js',
+        singleRun: true
+    }, done);
 });
 
 gulp.task('dev',  ['sass', 'compress-dev' , 'watch']);

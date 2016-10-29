@@ -7,8 +7,10 @@
   "dependencies": {
     "angular": "^1.5.8",
     "angular-animate": "^1.5.8",
+    "angular-mocks": "^1.5.8",
     "angular-ui-router": "^0.3.1",
     "body-parser": "^1.15.2",
+    "chai": "^3.5.0",
     "chalk": "*",
     "cross-spawn": "*",
     "express": "^4.14.0",
@@ -19,6 +21,13 @@
     "gulp-plumber": "^1.1.0",
     "gulp-sass": "^2.3.2",
     "gulp-uglify": "^2.0.0",
+    "jasmine-core": "^2.5.2",
+    "karma": "0.12.31",
+    "karma-chai": "0.1.0",
+    "karma-chrome-launcher": "0.1.7",
+    "karma-jasmine": "^1.0.2",
+    "karma-mocha": "0.1.10",
+    "mocha": "^3.1.2",
     "path": "*",
     "path-exists": "*"
   }

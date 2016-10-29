@@ -1,7 +1,38 @@
 angular.module('questions',['ngSanitize'])
-    .controller('questions', function ($scope) {
+    .controller('questionsCtrl', ['$scope','listOfQuestion', function ($scope, listOfQuestion) {
+        $scope.listOfQuestion = listOfQuestion;
+        $scope.resultData = [];
+        $scope.start = function() {
+            $scope.idOfQuestion = 0;
+            $scope.process = true;
+            $scope.list = $scope.getQuestion($scope.idOfQuestion);
+        };
+        $scope.next = function() {
+            if(!$scope.validation()) return
+            $scope.idOfQuestion++;
+            $scope.resultData = $scope.resultData.concat(angular.copy($scope.list.questions));
+            $scope.list = $scope.getQuestion($scope.idOfQuestion);
+            if(!$scope.list && $scope.resultData.length>0){
+                $scope.process = false;
+            }
+        };
+        $scope.getQuestion = function(id){
+            return listOfQuestion[id]
+        }
 
-    })
+        $scope.validation = function (){
+            var checkValid = true;
+            angular.forEach($scope.list.questions, function (val, ind) {
+                if(!val.value || val.valid && !val.value.match(val.valid)){
+                    val.error = 'write correct format'
+                    checkValid=false
+                }else{
+                    val.error = ''
+                }
+            })
+            return checkValid;
+        }
+    }])
     .directive('result', ['$sce', '$compile', function($sce, $compile) {
         return {
             restrict: 'E',
@@ -23,8 +54,8 @@ angular.module('questions',['ngSanitize'])
                 data: '='
             },
             templateUrl: 'src/modules/questions/question.html',
-            link: function (scope) {
-                scope.splitQuestion = scope.data.text.split('__');
+            controller: function ($scope) {
+                $scope.splitQuestion = $scope.data.text.split('__');
             }
         }
     }])
@@ -32,39 +63,6 @@ angular.module('questions',['ngSanitize'])
         return {
             restrict: 'E',
             templateUrl: 'src/modules/questions/form.html',
-            link: function (scope, element, attrs, $rootScope) {
-                scope.listOfQuestion = listOfQuestion;
-                scope.resultData = [];
-                scope.start = function() {
-                    scope.idOfQuestion = 0;
-                    scope.process = true;
-                    scope.list = scope.getQuestion(scope.idOfQuestion);
-                };
-                scope.next = function() {
-                    if(!validation()) return
-                    scope.idOfQuestion++;
-                    scope.resultData = scope.resultData.concat(angular.copy(scope.list.questions));
-                    scope.list = scope.getQuestion(scope.idOfQuestion);
-                    if(!scope.list && scope.resultData.length>0){
-                        scope.process = false;
-                    }
-                };
-                scope.getQuestion = function(id){
-                    return listOfQuestion[id]
-                }
-
-                function validation(){
-                    var checkValid = true;
-                    angular.forEach(scope.list.questions, function (val, ind) {
-                        if(val.valid && !val.valid.test(val.value) || !val.value){
-                            val.error = 'write correct format'
-                            checkValid=false
-                        }else{
-                            val.error = ''
-                        }
-                    })
-                    return checkValid;
-                }
-            }
+            controller: 'questionsCtrl',
         }
     }]);
