@@ -30,19 +30,6 @@ gulp.task('compress-dev', function() {
         .pipe(gulp.dest('build'));
 });
 
-gulp.task('compress-prod', function() {
-    gulp.src([
-        'node_modules/angular/angular.js',
-        'node_modules/angular-ui-router/release/angular-ui-router.js',
-        'node_modules/angular-animate/angular-animate.js',
-        'app.js',
-        'src/**/*.js',
-    ])
-        .pipe(concat('app.min.js'))
-        .pipe(uglify())
-        .pipe(gulp.dest('build'));
-});
-
 gulp.task('watch', function() {
     gulp.watch('public/styles/*.scss', ['sass']);
     gulp.watch('src/modules/**/*.scss', ['sass']);
@@ -58,4 +45,3 @@ gulp.task('unit', function (done) {
 });
 
 gulp.task('dev',  ['sass', 'compress-dev' , 'watch']);
-gulp.task('build', ['sass', 'compress-prod']);

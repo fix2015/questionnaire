@@ -17,19 +17,13 @@ npm install
 ```bash
 gulp dev
 ```
-- all SCSS/HTML will be watched for changes and injected into browser thanks to BrowserSync
 
-## 3. Build production version
-```bash
-gulp build
-```
-
-## 4. Run unit test
+## 3. Run unit test
 ```bash
 gulp unit
 ```
 
-## 5. Start webserver
+## 4. Start webserver
 ```bash
 npm start
 ```
