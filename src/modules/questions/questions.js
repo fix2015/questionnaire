@@ -1,32 +1,6 @@
 angular.module('questions',['ngSanitize'])
     .constant('listOfQuestion', [
         {
-            text: "We need your address to confirm our best offer",
-            questions: [
-                {
-                    id: "21",
-                    type: 'text',
-                    text: "I live in __&__",
-                    name: 'address',
-                    valid: /^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$/,
-                    datalist:[
-                        'Ukraine',
-                        'Russia',
-                        'USA',
-                        'Britain',
-                        'Swed',
-                    ]
-                },
-                {
-                    id: "22",
-                    type: 'text',
-                    text: "My zip code is __&__",
-                    name: 'zip',
-                    valid: /(^\d{5}$)|(^\d{5}-\d{4}$)/
-                }
-            ]
-        },
-        {
             text: "RocketRoute would like to give you the best product. This survey will take few seconds.",
             questions: [
                 {
@@ -49,6 +23,32 @@ angular.module('questions',['ngSanitize'])
                     text: "And my phone number is __&__",
                     type: 'text',
                     valid: /^[0-9]{3}-[0-9]{3}-[0-9]{4}$/
+                }
+            ]
+        },
+        {
+            text: "We need your address to confirm our best offer",
+            questions: [
+                {
+                    id: "21",
+                    type: 'text',
+                    text: "I live in __&__",
+                    name: 'address',
+                    valid: /^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$/,
+                    datalist:[
+                        'Ukraine',
+                        'Russia',
+                        'USA',
+                        'Britain',
+                        'Swed',
+                    ]
+                },
+                {
+                    id: "22",
+                    type: 'text',
+                    text: "My zip code is __&__",
+                    name: 'zip',
+                    valid: /(^\d{5}$)|(^\d{5}-\d{4}$)/
                 }
             ]
         },
