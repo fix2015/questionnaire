@@ -1,14 +1,15 @@
-<div class="start" ng-if="!process && resultData.length==0">
+<div class="start" ng-if="!process && resultData.length==0" flex>
     <button ng-click="start()">Start</button>
 </div>
-<div class="questions" ng-if="process">
-    <div class="questions-stage">
+
+<div class="questions" ng-if="process" layout="row" layout-align="center center" flex>
+    <md-sidenav class="questions-stage" flex="30" md-is-locked-open="{{process}}">
         <div ng-repeat="list in listOfQuestion">
             <span ng-class="{active: idOfQuestion == $index}">Stage - {{$index+1}}</span><b ng-if="idOfQuestion == $index" class="triangle"></b>
         </div>
-        <hr/>
-    </div>
-    <div class="questions-block">
+        <hr hide-gt-sm/>
+    </md-sidenav>
+    <md-content class="questions-block" flex>
         <h3>
             {{list.text}}
         </h3>
@@ -18,9 +19,11 @@
             </div>
             <input type="submit" value="Next">
         </form>
-    </div>
+    </md-content>
 </div>
-<div class="result" ng-if="!process && resultData.length>0">
+
+
+<div class="result" ng-if="!process && resultData.length>0" flex>
     <result data="resultData"></result>
 </div>
 

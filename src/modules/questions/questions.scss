@@ -1,27 +1,28 @@
 form-for-questions{
   font-size: 16px;
-  display: flex;
+/*  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   min-height: 500px;
   align-content: center;
-  align-items: center;
+  align-items: center;*/
   text-align: center;
   color: #8a8f94;
-  .start{
+/*  .start{
     flex-basis: 20%;
-  }
+  }*/
   .questions{
-    display: flex;
+/*    display: flex;
     flex-basis: 100%;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap;*/
     .questions-stage{
-      display: flex;
+/*      display: flex;
       flex-direction: column;
       justify-content: center;
-      flex-basis: 49%;
+      flex-basis: 49%;*/
+      padding: 1px;
       position: relative;
       div{
         padding: 15px;
@@ -61,14 +62,14 @@ form-for-questions{
         }
       }
       @media (max-width: 960px) {
-        flex-basis: 100%;
-        flex-direction: row;
+/*        flex-basis: 100%;
+        flex-direction: row;*/
         padding: 30px 0;
       }
       hr{
-        @media (min-width: 961px) {
+/*        @media (min-width: 961px) {
           display: none;
-        }
+        }*/
         display: block;
         position: absolute;
         top: 40%;
@@ -80,12 +81,12 @@ form-for-questions{
       }
     }
 
-    .questions-block{
+/*    .questions-block{
       flex-basis: 50%;
       @media (max-width: 960px) {
         flex-basis: 100%;
       }
-    }
+    }*/
     h3{
       font-size: 22px;
       font-weight: bold;

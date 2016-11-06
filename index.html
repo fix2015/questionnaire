@@ -7,9 +7,12 @@
     <link rel="icon" type="image/png" href="public/ico/favicon.ico"/>
     <link href="build/style.css" rel="stylesheet">
 </head>
-<body>
+<body ng-cloak layout="column">
 
-<ui-view></ui-view>
+<md-toolbar>
+    Questions
+</md-toolbar>
+<ui-view layout="column" flex></ui-view>
 
 <script src="build/app.min.js"></script>
 </body>

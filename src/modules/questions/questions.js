@@ -1,4 +1,4 @@
-angular.module('questions',['ngSanitize'])
+angular.module('questions',['ngSanitize', 'ngMaterial'])
     .constant('listOfQuestion', [
         {
             text: "RocketRoute would like to give you the best product. This survey will take few seconds.",

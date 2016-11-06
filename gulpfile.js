@@ -9,7 +9,8 @@ var karma = require('karma').server;
 gulp.task('sass', function() {
     gulp.src([
         'public/**/*.scss',
-        'src/modules/**/*.scss'
+        'src/modules/**/*.scss',
+        'node_modules/angular-material/angular-material.scss'
     ])
         .pipe(concat('style.js'))
         .pipe(plumber())
@@ -22,6 +23,8 @@ gulp.task('compress-dev', function() {
         'node_modules/angular/angular.js',
         'node_modules/angular-ui-router/release/angular-ui-router.js',
         'node_modules/angular-animate/angular-animate.js',
+        'node_modules/angular-aria/angular-aria.js',
+        'node_modules/angular-material/angular-material.js',
         'public/lib/*.js',
         'app.js',
         'src/**/*.js',

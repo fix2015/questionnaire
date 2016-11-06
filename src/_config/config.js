@@ -9,6 +9,7 @@ angular.module('angularApp')
             .state('home', {
                 url         : '/',
                 templateUrl : 'public/templates/home.html',
-                controller  : 'mainController'
+                controller  : 'mainController',
+                'class': 'flex'
             })
     }]);
