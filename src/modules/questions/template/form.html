@@ -2,12 +2,12 @@
     <button ng-click="start()">Start</button>
 </div>
 
-<div class="questions" ng-if="process" layout="row" layout-align="center center" flex>
-    <md-sidenav class="questions-stage" flex="30" md-is-locked-open="{{process}}">
-        <div ng-repeat="list in listOfQuestion">
-            <span ng-class="{active: idOfQuestion == $index}">Stage - {{$index+1}}</span><b ng-if="idOfQuestion == $index" class="triangle"></b>
+<div class="questions" ng-if="process" layout="row" layout-md="column" layout-sm="column" layout-align="center center" flex>
+    <md-sidenav class="questions-stage" flex="30" md-is-locked-open="{{process}}" layout-md="row" layout-sm="row">
+        <div ng-repeat="list in listOfQuestion" flex layout="row" layout-md="" layout-sm="">
+            <span ng-class="{active: idOfQuestion == $index}">Stage-{{$index+1}}</span><b ng-if="idOfQuestion == $index" class="triangle"></b>
         </div>
-        <hr hide-gt-sm/>
+        <hr hide-gt-md/>
     </md-sidenav>
     <md-content class="questions-block" flex>
         <h3>

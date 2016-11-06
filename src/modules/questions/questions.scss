@@ -33,10 +33,10 @@ form-for-questions{
           border-color: #cccccc;
           padding: 15px 100px;
           background: #ffffff;
-          @media (max-width: 960px) {
+          @media (max-width: 1280px) {
             border: 1px solid;
             border-color: #cccccc;
-            padding: 25px 5px;
+            padding: 15px;
             -moz-border-radius: 50px;
             -webkit-border-radius: 50px;
             border-radius: 39px;
@@ -50,9 +50,7 @@ form-for-questions{
           border-style: solid;
           border-width: 25px 0 25px 35px;
           border-color: transparent transparent transparent #cccccc;
-          position: absolute;
-          top: -1px;
-          @media (max-width: 960px) {
+          @media (max-width: 1280px) {
             display: none;
           }
         }
@@ -61,10 +59,12 @@ form-for-questions{
           border: 1px solid #cccccc;
         }
       }
-      @media (max-width: 960px) {
+      @media (max-width: 1280px) {
 /*        flex-basis: 100%;
         flex-direction: row;*/
+        /*
         padding: 30px 0;
+        */
       }
       hr{
 /*        @media (min-width: 961px) {
@@ -83,7 +83,7 @@ form-for-questions{
 
 /*    .questions-block{
       flex-basis: 50%;
-      @media (max-width: 960px) {
+      @media (max-width: 1280px) {
         flex-basis: 100%;
       }
     }*/
@@ -137,7 +137,7 @@ form-for-questions{
     padding: 10px 20px;
     margin: 20px 0;
   }
-  @media (max-width: 960px) {
+  @media (max-width: 1280px) {
     min-height: 100%;
   }
 }
