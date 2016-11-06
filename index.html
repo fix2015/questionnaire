@@ -7,12 +7,42 @@
     <link rel="icon" type="image/png" href="public/ico/favicon.ico"/>
     <link href="build/style.css" rel="stylesheet">
 </head>
-<body ng-cloak layout="column">
+<body ng-cloak layout="column" ng-controller="questionsCtrl">
 
-<md-toolbar>
-    Questions
-</md-toolbar>
+<!--
 <ui-view layout="column" flex></ui-view>
+-->
+
+<md-toolbar ng-click="start()">
+    <md-button class="md-no-focus start" ng-click="start()" ng-if="!process && resultData.length==0">Start</md-button>
+</md-toolbar>
+<div layout="row" flex class="questions" layout-md="column" layout-sm="column" layout-xs="column" ng-if="process">
+    <md-content class="questions-stage" flex-gt-md="30" flex-md="auto" flex-sm="auto" flex-xs="auto">
+        <div layout="row" layout-lg="column">
+            <div ng-repeat="list in listOfQuestion" flex >
+                <span ng-class="{active: idOfQuestion == $index}">Stage-{{$index+1}} <b ng-if="idOfQuestion == $index" class="triangle"></b></span>
+            </div>
+            <hr hide-gt-md/>
+        </div>
+    </md-content>
+    <md-content class="questions-block" flex md-whiteframe="4dp" flex-gt-md="70" flex-md="auto" flex-sm="auto" flex-xs="auto">
+        <h3>
+            {{list.text}}
+        </h3>
+        <form name="myForm"  ng-submit="next()">
+            <div ng-repeat="question in list.questions" class="question-block">
+                <question data="question"></question>
+            </div>
+            <input type="submit" value="Next">
+        </form>
+    </md-content>
+</div>
+<div layout="column" flex ng-if="!process && resultData.length>0">
+    <md-content class="result"  flex>
+        <result data="resultData"></result>
+    </md-content>
+</div>
+
 
 <script src="build/app.min.js"></script>
 </body>
